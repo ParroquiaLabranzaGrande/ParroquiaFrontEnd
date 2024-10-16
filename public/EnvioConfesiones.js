@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     const mainContent = document.getElementById('Principal');
     const inicioLink = document.getElementById('inicioLink');
-    const envioMisasLink = document.getElementById('AceptarMisas');
-    const mobileEnvioMisasLink = document.getElementById('MobileAceptarMisas');
+    const envioMisasLink = document.getElementById('AceptarConfesiones');
+    const mobileEnvioMisasLink = document.getElementById('MobileAceptarConfesiones');
 
     function handleEnvioPartidaClick(e) {
         e.preventDefault();
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </button>
             </div>
             <div class="table-responsive mt-4" >
-                <h5 class="text-center mb-3">Misas Pendientes</h5>
+                <h5 class="text-center mb-3">Confesiones Pendientes</h5>
                 <table class="table table-striped table-bordered" id ="tablaPendientes">
                     <thead>
                         <tr>
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
            <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Confesiones confirmadas </h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Misas confirmadas </h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -55,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function () {
                                                 <th scope="col">Fecha</th>
                                                 <th scope="col">Hora</th>
                                                 <th scope="col">Estado</th>
-                                                <th scope="col">Parroco</th>
                                             </tr>
                                         </thead>
                                         <tbody>
