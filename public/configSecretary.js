@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         try {
-            const response = await fetch(`https://api-parroquia.onrender.com/user/data`, {
+            const response = await fetch(`https://backendparroquia-1.onrender.com/user/data`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }).then((result) => {
                         if (result.isConfirmed) {
                             const updatedData = result.value;
-                            fetch(`https://api-parroquia.onrender.com/user/${data._id}`, {
+                            fetch(`https://backendparroquia-1.onrender.com/user/${data._id}`, {
                                 method: 'PUT',
                                 headers: {
                                     'Content-Type': 'application/json',

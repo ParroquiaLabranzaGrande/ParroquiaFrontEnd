@@ -191,7 +191,7 @@ function ViewTable() {
         return;
     }
     // Obtener los usuarios
-    fetch('https://api-parroquia.onrender.com/user/', {
+    fetch('https://backendparroquia-1.onrender.com/user/', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -299,7 +299,7 @@ function initializeFormFunctionality() {
             nextButton.innerHTML = 'Verificando...';
 
             try {
-                const response = await fetch('https://api-parroquia.onrender.com/auth/verify-Email', {
+                const response = await fetch('https://backendparroquia-1.onrender.com/auth/verify-Email', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -356,7 +356,7 @@ function verifyCode() {
         return;
     }
 
-    fetch('https://api-parroquia.onrender.com/auth/verify-Code', {
+    fetch('https://backendparroquia-1.onrender.com/auth/verify-Code', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`
@@ -412,7 +412,7 @@ function registerUserAdmin(event) {
         role: "Admin"
     };
 
-    fetch('https://api-parroquia.onrender.com/auth/register', {
+    fetch('https://backendparroquia-1.onrender.com/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

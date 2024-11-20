@@ -1136,7 +1136,7 @@ function crearBautismo(event) {
         godfather2
     };
 
-    fetch('https://api-parroquia.onrender.com/baptism/', {
+    fetch('https://backendparroquia-1.onrender.com/baptism/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -1192,7 +1192,7 @@ function crearConfirmacion(event) {
         baptizedParish
     };
 
-    fetch('https://api-parroquia.onrender.com/confirmation/', {
+    fetch('https://backendparroquia-1.onrender.com/confirmation/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -1263,7 +1263,7 @@ function crearMatrimonio(event) {
         witness2: document.getElementById('witness2').value
     };
 
-    fetch('https://api-parroquia.onrender.com/marriage/', {
+    fetch('https://backendparroquia-1.onrender.com/marriage/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -1312,7 +1312,7 @@ function registrarDefuncion(event) {
 
     };
 
-    fetch('https://api-parroquia.onrender.com/death/', {
+    fetch('https://backendparroquia-1.onrender.com/death/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -1354,7 +1354,7 @@ function buscarBautismo(event) {
 
     const documentNumber = document.getElementById('NumDocBuscarBautismo').value;
 
-    fetch(`https://api-parroquia.onrender.com/baptism/${documentNumber}`, {
+    fetch(`https://backendparroquia-1.onrender.com/baptism/${documentNumber}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('tokenSession')}`
@@ -1436,7 +1436,7 @@ function buscarConfirmacion(event) {
 
     const documentNumber = document.getElementById('NumDocBuscarConfirmacion').value;
 
-    fetch(`https://api-parroquia.onrender.com/confirmation/${documentNumber}`, {
+    fetch(`https://backendparroquia-1.onrender.com/confirmation/${documentNumber}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('tokenSession')}`
@@ -1493,7 +1493,7 @@ function buscarMatrimonio(event) {
 
     const documentNumber = document.getElementById('NumDocBuscarMatrimonio').value;
 
-    fetch(`https://api-parroquia.onrender.com/marriage/${documentNumber}`, {
+    fetch(`https://backendparroquia-1.onrender.com/marriage/${documentNumber}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('tokenSession')}`
@@ -1554,7 +1554,7 @@ function buscarDefuncion(event) {
 
     const documentNumber = document.getElementById('NumDocBuscarDefuncion').value;
 
-    fetch(`https://api-parroquia.onrender.com/death/${documentNumber}`, {
+    fetch(`https://backendparroquia-1.onrender.com/death/${documentNumber}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('tokenSession')}`
@@ -1613,7 +1613,7 @@ function buscarYEliminarBautismo(event) {
     const documentNumber = document.getElementById('NumDocEliminarBautismo').value.trim();
 
     // Primero, buscar el bautismo
-    fetch(`https://api-parroquia.onrender.com/baptism/${documentNumber}`, {
+    fetch(`https://backendparroquia-1.onrender.com/baptism/${documentNumber}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('tokenSession')}`
@@ -1659,7 +1659,7 @@ function buscarYEliminarBautismo(event) {
 }
 
 function eliminarBautismo(documentNumber) {
-    fetch(`https://api-parroquia.onrender.com/baptism/${documentNumber}`, {
+    fetch(`https://backendparroquia-1.onrender.com/baptism/${documentNumber}`, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('tokenSession')}`
@@ -1700,7 +1700,7 @@ function buscarYEliminarConfirmacion(event) {
     const documentNumber = document.getElementById('NumDocEliminarConfirmacion').value.trim();
 
     // Primero, buscar el bautismo
-    fetch(`https://api-parroquia.onrender.com/confirmation/${documentNumber}`, {
+    fetch(`https://backendparroquia-1.onrender.com/confirmation/${documentNumber}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('tokenSession')}`
@@ -1746,7 +1746,7 @@ function buscarYEliminarConfirmacion(event) {
 }
 
 function eliminarConfirmacion(documentNumber) {
-    fetch(`https://api-parroquia.onrender.com/confirmation/${documentNumber}`, {
+    fetch(`https://backendparroquia-1.onrender.com/confirmation/${documentNumber}`, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('tokenSession')}`
@@ -1783,7 +1783,7 @@ function buscarYEliminarMatrimonio(event) {
     const documentNumber = document.getElementById('NumDocEliminarMatrimonio').value.trim();
 
     // Primero, buscar el bautismo
-    fetch(`https://api-parroquia.onrender.com/marriage/${documentNumber}`, {
+    fetch(`https://backendparroquia-1.onrender.com/marriage/${documentNumber}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('tokenSession')}`
@@ -1832,7 +1832,7 @@ function buscarYEliminarMatrimonio(event) {
 }
 
 function eliminarMatrimonio(documentNumber) {
-    fetch(`https://api-parroquia.onrender.com/marriage/${documentNumber}`, {
+    fetch(`https://backendparroquia-1.onrender.com/marriage/${documentNumber}`, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('tokenSession')}`
@@ -1870,7 +1870,7 @@ function buscarYEliminarDefuncion(event) {
     const documentNumber = document.getElementById('NumDocEliminarDefuncion').value.trim();
 
     // Primero, buscar el bautismo
-    fetch(`https://api-parroquia.onrender.com/death/${documentNumber}`, {
+    fetch(`https://backendparroquia-1.onrender.com/death/${documentNumber}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('tokenSession')}`
@@ -1917,7 +1917,7 @@ function buscarYEliminarDefuncion(event) {
 }
 
 function eliminarDefuncion(documentNumber) {
-    fetch(`https://api-parroquia.onrender.com/death/${documentNumber}`, {
+    fetch(`https://backendparroquia-1.onrender.com/death/${documentNumber}`, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('tokenSession')}`
@@ -1966,7 +1966,7 @@ function buscarYEditarDefuncion(event) {
     }
 
     // Primero, buscar la defunción
-    fetch(`https://api-parroquia.onrender.com/death/${documentNumber}`, {
+    fetch(`https://backendparroquia-1.onrender.com/death/${documentNumber}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('tokenSession')}`
@@ -2034,7 +2034,7 @@ function buscarYEditarDefuncion(event) {
 }
 
 function actualizarDefuncion(documentNumber, datosActualizados) {
-    fetch(`https://api-parroquia.onrender.com/death/${documentNumber}`, {
+    fetch(`https://backendparroquia-1.onrender.com/death/${documentNumber}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -2084,7 +2084,7 @@ function buscarYEditarMatrimonio(event) {
     }
 
     // Primero, buscar la defunción
-    fetch(`https://api-parroquia.onrender.com/marriage/${documentNumber}`, {
+    fetch(`https://backendparroquia-1.onrender.com/marriage/${documentNumber}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('tokenSession')}`
@@ -2154,7 +2154,7 @@ function buscarYEditarMatrimonio(event) {
 }
 
 function actualizarMatrimonio(documentNumber, datosActualizados) {
-    fetch(`https://api-parroquia.onrender.com/marriage/${documentNumber}`, {
+    fetch(`https://backendparroquia-1.onrender.com/marriage/${documentNumber}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -2200,7 +2200,7 @@ function buscarYEditarBautismo(event) {
     }
 
     // Primero, buscar la defunción
-    fetch(`https://api-parroquia.onrender.com/baptism/${documentNumber}`, {
+    fetch(`https://backendparroquia-1.onrender.com/baptism/${documentNumber}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('tokenSession')}`
@@ -2270,7 +2270,7 @@ function buscarYEditarBautismo(event) {
 }
 
 function actualizarBautismo(documentNumber, datosActualizados) {
-    fetch(`https://api-parroquia.onrender.com/baptism/${documentNumber}`, {
+    fetch(`https://backendparroquia-1.onrender.com/baptism/${documentNumber}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -2318,7 +2318,7 @@ function buscarYEditarConfirmacion(event) {
     }
 
     // Primero, buscar la defunción
-    fetch(`https://api-parroquia.onrender.com/confirmation/${documentNumber}`, {
+    fetch(`https://backendparroquia-1.onrender.com/confirmation/${documentNumber}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('tokenSession')}`
@@ -2385,7 +2385,7 @@ function buscarYEditarConfirmacion(event) {
 }
 
 function actualizarConfirmacion(documentNumber, datosActualizados) {
-    fetch(`https://api-parroquia.onrender.com/confirmation/${documentNumber}`, {
+    fetch(`https://backendparroquia-1.onrender.com/confirmation/${documentNumber}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',

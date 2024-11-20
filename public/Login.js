@@ -5,7 +5,7 @@ const getUserRole = async (email) => {
             throw new Error('No se encontró el token en localStorage');
         }
 
-        const response = await fetch('https://api-parroquia.onrender.com/user/', {
+        const response = await fetch('https://backendparroquia-1.onrender.com/User', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -36,7 +36,7 @@ document.getElementById('VerificacionDeLogin').addEventListener('click', functio
 
     console.log('Intentando login con:', { mail: email, password: password });
 
-    fetch('https://api-parroquia.onrender.com/auth/login', {
+    fetch('https://backendparroquia-1.onrender.com/auth/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -122,7 +122,7 @@ function forgotPassword() {
         return;
     }
 
-    fetch('https://api-parroquia.onrender.com/auth/forgot-password', {
+    fetch('https://backendparroquia-1.onrender.com/auth/forgot-password', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -154,7 +154,7 @@ function verifyCodeRememberpassword() {
         return;
     }
 
-    fetch('https://api-parroquia.onrender.com/auth/verify-ResetCode', {
+    fetch('https://backendparroquia-1.onrender.com/auth/verify-ResetCode', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -201,7 +201,7 @@ function resetPassword() {
 
     console.log('Enviando solicitud al servidor');
 
-    fetch('https://api-parroquia.onrender.com/auth/change-Password', {
+    fetch('https://backendparroquia-1.onrender.com/auth/change-Password', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

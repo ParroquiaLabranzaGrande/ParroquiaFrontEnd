@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function cargarMisaPendientes() {
-    fetch('https://api-parroquia.onrender.com/requestMass/earring', {
+    fetch('https://backendparroquia-1.onrender.com/requestMass/earring', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -145,7 +145,7 @@ function cargarMisaPendientes() {
 }
 
 function cargarMisaEnviadas() {
-    fetch('https://api-parroquia.onrender.com/requestMass/confirmed', {
+    fetch('https://backendparroquia-1.onrender.com/requestMass/confirmed', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -186,7 +186,7 @@ function cargarMisaEnviadas() {
 
 function enviarMisa(partidaId) {
     console.log('Intentando enviar partida con ID:', partidaId);
-    fetch(`https://api-parroquia.onrender.com/requestMass/confirm/${partidaId}`, {
+    fetch(`https://backendparroquia-1.onrender.com/requestMass/confirm/${partidaId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -227,7 +227,7 @@ function enviarMisa(partidaId) {
 
 function EliminarMisa(partidaId) {
     console.log('Intentando eliminar Misa con ID:', partidaId);
-    fetch(`https://api-parroquia.onrender.com/requestMass/${partidaId}`, {
+    fetch(`https://backendparroquia-1.onrender.com/requestMass/${partidaId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',

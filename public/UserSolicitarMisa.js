@@ -201,7 +201,7 @@ function SolicitarMisa() {
 
     function verificarDisponibilidad(año, mes, dia, diaEl) {
         const fecha = `${año}-${(mes + 1).toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}`;
-        fetch(`https://api-parroquia.onrender.com/massSchedule/time-slots?date=${fecha}`)
+        fetch(`https://backendparroquia-1.onrender.com/massSchedule/time-slots?date=${fecha}`)
             .then(response => response.json())
             .then(data => {
                 if (data.timeSlots && data.timeSlots.some(slot => slot.available)) {
@@ -231,7 +231,7 @@ function SolicitarMisa() {
     function mostrarHorarios(año, mes, dia) {
         const fecha = `${año}-${(mes + 1).toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}`;
             
-            fetch(`https://api-parroquia.onrender.com/massSchedule/time-slots?date=${fecha}`)
+            fetch(`https://backendparroquia-1.onrender.com/massSchedule/time-slots?date=${fecha}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('No se encontraron horarios');
@@ -299,7 +299,7 @@ function SolicitarMisa() {
             return;
         }
 
-        fetch('https://api-parroquia.onrender.com/requestMass', {
+        fetch('https://backendparroquia-1.onrender.com/requestMass', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

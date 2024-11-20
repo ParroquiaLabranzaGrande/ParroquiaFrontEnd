@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function cargarPartidasPendientes() {
-    fetch('https://api-parroquia.onrender.com/requestDeparture/earring', {
+    fetch('https://backendparroquia-1.onrender.com/requestDeparture/earring', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -144,7 +144,7 @@ function cargarPartidasPendientes() {
 }
 
 function cargarPartidasEnviadas() {
-    fetch('https://api-parroquia.onrender.com/requestDeparture/sent', {
+    fetch('https://backendparroquia-1.onrender.com/requestDeparture/sent', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -184,7 +184,7 @@ function cargarPartidasEnviadas() {
 
 function enviarPartida(partidaId) {
     console.log('Intentando enviar partida con ID:', partidaId);
-    fetch(`https://api-parroquia.onrender.com/requestDeparture/send/${partidaId}`, {
+    fetch(`https://backendparroquia-1.onrender.com/requestDeparture/send/${partidaId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -223,7 +223,7 @@ function enviarPartida(partidaId) {
 }
 function EliminarPartida(partidaId) {
     console.log('Intentando eliminar partida con ID:', partidaId);
-    fetch(`https://api-parroquia.onrender.com/requestDeparture/${partidaId}`, {
+    fetch(`https://backendparroquia-1.onrender.com/requestDeparture/${partidaId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',

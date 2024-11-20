@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Usa la URL correcta para tu entorno local
-    fetch('http://localhost:3200/accessRole/user', {
+    fetch('https://backendparroquia-1.onrender.com/accessRole/user', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

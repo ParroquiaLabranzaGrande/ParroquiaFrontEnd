@@ -44,7 +44,7 @@ document.getElementById('verifyEmailBtn').addEventListener('click', async functi
     }
 
     try {
-        const response = await fetch('https://api-parroquia.onrender.com/auth/verify-Email', {
+        const response = await fetch('https://backendparroquia-1.onrender.com/auth/verify-Email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -93,7 +93,7 @@ function verifyCode() {
         return;
     }
 
-    fetch('https://api-parroquia.onrender.com/auth/verify-Code', {
+    fetch('https://backendparroquia-1.onrender.com/auth/verify-Code', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -114,18 +114,6 @@ function verifyCode() {
             console.error('Error:', error);
         });
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 function registerUser() {
     const name = document.getElementById('name').value;
@@ -162,7 +150,7 @@ function registerUser() {
         role: "Usuario"
     };
 
-    fetch('https://api-parroquia.onrender.com/auth/register', {
+    fetch('https://backendparroquia-1.onrender.com/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -200,7 +188,7 @@ function registerUser() {
 
 const getAllDocumentData = async () => {
     try {
-        const response = await fetch('https://api-parroquia.onrender.com/documentType/', {
+        const response = await fetch('https://backendparroquia-1.onrender.com/documentType/', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
