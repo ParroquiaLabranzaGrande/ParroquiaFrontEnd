@@ -89,3 +89,26 @@
       outline-color: transparent;
     }
   }
+
+
+  /* Estilos personalizados para el menú */
+  .nav-estilo-personalizado .link-personalizado {
+    border: 2px solid beige; /* Bordes beige */
+    border-radius: 10px;    /* Bordes redondeados */
+    font-family: 'Georgia', serif; /* Fuente elegante */
+    color: #6c757d; /* Texto gris oscuro */
+    padding: 10px 15px;
+    margin: 5px; /* Separación entre los elementos */
+    background-color: #f8f9fa; /* Fondo claro */
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+.nav-estilo-personalizado .link-personalizado:hover {
+    background-color: beige; /* Fondo beige al pasar el mouse */
+    color: #343a40; /* Texto más oscuro */
+}
+
+.nav-estilo-personalizado .link-personalizado.active {
+    background-color: #6c757d; /* Fondo gris oscuro para el enlace activo */
+    color: white; /* Texto blanco para el enlace activo */
+}
