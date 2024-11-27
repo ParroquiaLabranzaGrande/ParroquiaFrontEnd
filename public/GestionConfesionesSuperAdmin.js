@@ -1,13 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
     const mainContent = document.getElementById('Principal');
-    const Gestionmisas = document.getElementById('GestionConfesiones');
-    const MobileGestionmisas = document.getElementById('MobileGestionConfesiones');
+    const GestionConfesiones = document.getElementById('GestionConfesiones');
 
     const contenidoInicial = mainContent.innerHTML;
 
-    function handleGestionMisasClick(e) {
+    function handleGestionConfesionesClick(e) {
         e.preventDefault();
-        const gestionMisasHTML = `
+        const GestionConfesionesHTML = `
         <style>
         .time-slot {
             width: 100px;
@@ -63,19 +62,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
         
         `;
-        mainContent.innerHTML = gestionMisasHTML;
-        initializeMassManagement();
+        mainContent.innerHTML = GestionConfesionesHTML;
+        initialiceConfesionManagement();
     }
 
-    if (Gestionmisas) {
-        Gestionmisas.addEventListener('click', handleGestionMisasClick);
-    }
-    if (MobileGestionmisas) {
-        MobileGestionmisas.addEventListener('click', handleGestionMisasClick);
+    if (GestionConfesiones) {
+        GestionConfesiones.addEventListener('click', handleGestionConfesionesClick);
     }
 });
 
-function initializeMassManagement() {
+function initialiceConfesionManagement() {
     const datePicker = document.getElementById('datePicker');
     const confirmDateBtn = document.getElementById('confirmDate');
     const timeSlots = document.getElementById('timeSlots');
@@ -128,7 +124,7 @@ function initializeMassManagement() {
             timeSlots: selectedSlots.map(time => ({ time, available: true }))
         };
 
-        fetch('https://backendparroquia-1.onrender.com/massSchedule', {
+        fetch('https://backendparroquia-1.onrender.com/confessionsSchedule', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -168,7 +164,7 @@ function initializeMassManagement() {
             return;
         }
 
-        fetch(`https://backendparroquia-1.onrender.com/massSchedule/time-slots?date=${dateToDelete}`)
+        fetch(`https://backendparroquia-1.onrender.com/confessionsSchedule/time-slots?date=${dateToDelete}`)
             .then(response => response.json())
             .then(data => {
                 timeSlotsToDelete.innerHTML = '';
@@ -204,7 +200,7 @@ function initializeMassManagement() {
             return;
         }
 
-        fetch('https://backendparroquia-1.onrender.com/massSchedule/remove-time-slots', {
+        fetch('https://backendparroquia-1.onrender.com/confessionsSchedule/remove-time-slots', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

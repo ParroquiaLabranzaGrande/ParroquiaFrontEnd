@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const mainContent = document.getElementById('Principal');
-    const Gestionmisas = document.getElementById('SolicitudDeMisas');
-    const MobileGestionmisas = document.getElementById('MobileMisa');
+    const Gestionmisas = document.getElementById('SolicitudDeCoffnfesiones');
 
     const contenidoInicial = mainContent.innerHTML;
 
@@ -140,9 +139,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (Gestionmisas) {
         Gestionmisas.addEventListener('click', handleUserMisasClick);
     }
-    if (MobileGestionmisas) {
-        MobileGestionmisas.addEventListener('click', handleUserMisasClick);
-    }
 });
 
 
@@ -201,7 +197,7 @@ function SolicitarMisa() {
 
     function verificarDisponibilidad(año, mes, dia, diaEl) {
         const fecha = `${año}-${(mes + 1).toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}`;
-        fetch(`https://backendparroquia-1.onrender.com/massSchedule/time-slots?date=${fecha}`)
+        fetch(`https://backendparroquia-1.onrender.com/confessionsSchedule/time-slots?date=${fecha}`)
             .then(response => response.json())
             .then(data => {
                 if (data.timeSlots && data.timeSlots.some(slot => slot.available)) {
@@ -231,7 +227,7 @@ function SolicitarMisa() {
     function mostrarHorarios(año, mes, dia) {
         const fecha = `${año}-${(mes + 1).toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}`;
             
-            fetch(`https://backendparroquia-1.onrender.com/massSchedule/time-slots?date=${fecha}`)
+            fetch(`https://backendparroquia-1.onrender.com/confessionsSchedule/time-slots?date=${fecha}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('No se encontraron horarios');
@@ -299,7 +295,7 @@ function SolicitarMisa() {
             return;
         }
 
-        fetch('https://backendparroquia-1.onrender.com/requestMass', {
+        fetch('https://backendparroquia-1.onrender.com/requestConfessions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

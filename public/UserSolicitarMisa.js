@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const mainContent = document.getElementById('Principal');
     const Gestionmisas = document.getElementById('SolicitudDeMisas');
-    const MobileGestionmisas = document.getElementById('MobileMisa');
 
     const contenidoInicial = mainContent.innerHTML;
 
@@ -139,9 +138,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (Gestionmisas) {
         Gestionmisas.addEventListener('click', handleUserMisasClick);
-    }
-    if (MobileGestionmisas) {
-        MobileGestionmisas.addEventListener('click', handleUserMisasClick);
     }
 });
 

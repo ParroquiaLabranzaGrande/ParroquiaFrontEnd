@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const mainContent = document.getElementById('Principal');
     const inicioLink = document.getElementById('inicioLink');
-    const envioMisasLink = document.getElementById('AceptarConfesiones');
-    const mobileEnvioMisasLink = document.getElementById('MobileAceptarConfesiones');
+    const EnvioConfesiones = document.getElementById('AceptarConfesiones');
 
     function handleEnvioPartidaClick(e) {
         e.preventDefault();
@@ -73,18 +72,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         mainContent.innerHTML = partidasPendientesHtml;
         setTimeout(() => {
-            cargarMisaPendientes();
+            CargarConfesionesPendientes();
             // Añadir un event listener para cargar las partidas enviadas cuando se abra el modal
             document.getElementById('exampleModal').addEventListener('show.bs.modal', cargarMisaEnviadas);
         }, 0);
     }
 
-    if (envioMisasLink) {
-        envioMisasLink.addEventListener('click', handleEnvioPartidaClick);
-    }
-
-    if (mobileEnvioMisasLink) {
-        mobileEnvioMisasLink.addEventListener('click', handleEnvioPartidaClick);
+    if (EnvioConfesiones) {
+        EnvioConfesiones.addEventListener('click', handleEnvioPartidaClick);
     }
 
     // ... (resto del código existente)
@@ -95,8 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-function cargarMisaPendientes() {
-    fetch('https://backendparroquia-1.onrender.com/requestMass/earring', {
+function CargarConfesionesPendientes() {
+    fetch('https://backendparroquia-1.onrender.com/requestConfessions/earring', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -145,7 +140,7 @@ function cargarMisaPendientes() {
 }
 
 function cargarMisaEnviadas() {
-    fetch('https://backendparroquia-1.onrender.com/requestMass/confirmed', {
+    fetch('https://backendparroquia-1.onrender.com/requestConfessions/confirmed', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -186,7 +181,7 @@ function cargarMisaEnviadas() {
 
 function enviarMisa(partidaId) {
     console.log('Intentando enviar partida con ID:', partidaId);
-    fetch(`https://backendparroquia-1.onrender.com/requestMass/confirm/${partidaId}`, {
+    fetch(`https://backendparroquia-1.onrender.com/requestConfessions/confirm/${partidaId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -210,7 +205,7 @@ function enviarMisa(partidaId) {
                 title: 'Éxito',
                 text: 'La Misa Es aceptada correctamente',
             }).then(() => {
-                cargarMisaPendientes();
+                CargarConfesionesPendientes();
                 cargarMisaEnviadas();
             });
         })
@@ -227,7 +222,7 @@ function enviarMisa(partidaId) {
 
 function EliminarMisa(partidaId) {
     console.log('Intentando eliminar Misa con ID:', partidaId);
-    fetch(`https://backendparroquia-1.onrender.com/requestMass/${partidaId}`, {
+    fetch(`https://backendparroquia-1.onrender.com/requestConfessions/${partidaId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -251,7 +246,7 @@ function EliminarMisa(partidaId) {
                 title: 'Éxito',
                 text: data.message || 'La solicitud de misa fue eliminada correctamente',
             }).then(() => {
-                cargarMisaPendientes();
+                CargarConfesionesPendientes();
                 cargarMisaEnviadas();
             });
         })

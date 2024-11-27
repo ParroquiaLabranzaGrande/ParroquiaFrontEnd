@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const mainContent = document.getElementById('Principal');
     const inicioLink = document.getElementById('inicioLink');
     const envioMisasLink = document.getElementById('AceptarMisas');
-    const mobileEnvioMisasLink = document.getElementById('MobileAceptarMisas');
 
     function handleEnvioPartidaClick(e) {
         e.preventDefault();
@@ -82,10 +81,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (envioMisasLink) {
         envioMisasLink.addEventListener('click', handleEnvioPartidaClick);
-    }
-
-    if (mobileEnvioMisasLink) {
-        mobileEnvioMisasLink.addEventListener('click', handleEnvioPartidaClick);
     }
 
     // ... (resto del código existente)
