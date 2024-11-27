@@ -1,64 +1,202 @@
-body{
-    height: 100%;
-    width: 100%;
-    overflow-x: hidden;
-    
-    
-
+/* Base styles and variables */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #d4af37;
+    --text-color: #2c3e50;
+    --background-light: #f8f9fa;
+    --font-primary: 'Playfair Display', serif;
+    --font-secondary: 'Georgia', serif;
 }
 
-.sidebar {
-    height: 100vh;
-    background-color: #E9D7F0;
-    
-}
-@media (max-width: 1500px) {
-    .responsive-width {
-        width: 80%; /* Ajusta el ancho del contenedor según tus necesidades */
-    }
+body {
+    font-family: var(--font-primary);
+    color: var(--text-color);
+    background-color: var(--background-light);
+    padding-top: 60px;
 }
 
-
-
-
-.custom-main {
-    
-    height: 100vh; 
-    /* Ejemplo de altura */
-    /* Puedes agregar más estilos personalizados aquí */
+/* Navbar Styling */
+.navbar {
+    background-color: white !important;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar .nav-link.active {
-    background-color: rgba(0, 0, 0, 0.1);
+.navbar-brand {
+    font-family: var(--font-primary);
+    color: var(--primary-color) !important;
+    font-weight: 600;
+    cursor: pointer;
 }
 
-.main-content h1 {
-    padding-top: 20px;
+.nav-link {
+    font-family: var(--font-primary);
+    color: var(--primary-color) !important;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    margin: 0 0.5rem;
+    padding: 0.75rem 1rem !important;
+    cursor: pointer;
 }
 
-
-@media (max-width: 767.98px) {
-    .sidebar {
-        display: none;
-    }
-    .mobile-header {
-        display: block;
-        
-    }
+.nav-link:hover {
+    color: var(--accent-color) !important;
+    border-bottom: 2px solid var(--accent-color);
 }
 
-@media (min-width: 768px) {
-    .mobile-header {
-        display: none;
-    }
+.nav-link.active {
+    color: var(--primary-color) !important;
+    border-bottom: 2px solid var(--primary-color);
 }
 
-@media (max-width: 768px) {
-    #tablaMatrimonio .columna-oculta-movil {
-        display: none;
-    }
+/* Navigation Toggle Button */
+.navbar-toggler {
+    cursor: pointer;
 }
 
-  
+/* Profile Card Styling */
+.card {
+    border: none;
+    transition: transform 0.3s ease;
+}
 
+.card:hover {
+    transform: translateY(-5px);
+    cursor: default;
+}
 
+.card-body {
+    padding: 2rem;
+}
+
+.card img {
+    transition: transform 0.3s ease;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+/* Interactive Elements */
+a, button, .btn, 
+.dropdown-item, 
+.navbar-toggler, 
+.nav-link,
+input[type="submit"],
+input[type="button"] {
+    cursor: pointer;
+}
+
+/* Disabled Elements */
+button:disabled,
+input:disabled,
+.btn:disabled {
+    cursor: not-allowed !important;
+}
+
+/* Text Selection */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    cursor: text;
+}
+
+/* Main Content Area */
+main {
+    min-height: calc(100vh - 60px);
+    transition: all 0.3s ease;
+}
+
+main img {
+    max-width: 100%;
+    height: auto; /* Mantener las proporciones de la imagen */
+    width: 500px; /* O un ancho fijo adecuado */
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    cursor: default;
+}
+
+/* Draggable Elements */
+[draggable="true"] {
+    cursor: move;
+}
+
+/* Help Elements */
+[data-title]:hover {
+    cursor: help;
+}
+
+/* Dropdown Styling */
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.dropdown-item {
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-primary);
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: var(--background-light);
+    color: var(--accent-color);
+}
+
+/* Form Controls */
+.form-control {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    cursor: text;
+}
+
+.form-control:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+}
+
+/* Buttons */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-1px);
+}
+
+/* Loading Cursor */
+.loading * {
+    cursor: wait !important;
+}
+
+.loading::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
