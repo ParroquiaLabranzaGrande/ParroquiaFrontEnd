@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="container mt-3" style="overflow-y: auto; overflow-x;>
   <div class="row">
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Calendario de Confesiones</h1>
+        <h1 class="text-center mb-4">Calendario de Misas</h1>
         <div id="calendario" class="mb-4"></div>
         <div class="leyenda">
             <div class="leyenda-item">
