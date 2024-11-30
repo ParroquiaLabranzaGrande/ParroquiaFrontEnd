@@ -138,6 +138,24 @@ function registerUser() {
     };
 
     const typeDocumentID = typeDocumentMap[typeDocument];
+    if(typeDocumentID === "66904ea3ca8a0fc2e67df521") {
+        const birthDateObj = new Date(birthdate);
+        const ageDifMs = Date.now() - birthDateObj.getTime();
+        const ageDate = new Date(ageDifMs);
+        const age = Math.abs(ageDate.getUTCFullYear() - 1970);
+
+        if (age < 18) {
+            messageDiv.innerHTML = '<div class="alert alert-danger">Debe tener al menos 18 años para registrarse.</div>';
+            return;
+        }
+    }
+
+    // Validación de complejidad de la contraseña
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!passwordRegex.test(password)) {
+        messageDiv.innerHTML = '<div class="alert alert-danger">La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial.</div>';
+        return;
+    }
 
     const userData = {
         name,
@@ -173,17 +191,11 @@ function registerUser() {
         })
         .catch(error => {
 
-
-
             messageDiv.innerHTML = `<div class="alert alert-danger">El numero de Documento ya existe</div>`;
             console.error('Error:', error);
 
-
         });
 }
-
-// Asegúrate de que el botón "Crear cuenta" en el tercer paso llame a esta función
-// <button type="button" class="btn btn-primary" onclick="registerUser()">Crear cuenta</button>
 
 
 const getAllDocumentData = async () => {
