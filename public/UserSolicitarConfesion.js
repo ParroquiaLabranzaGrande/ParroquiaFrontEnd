@@ -68,11 +68,11 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="leyenda">
             <div class="leyenda-item">
                 <div class="leyenda-color" style="background-color: #cce5ff;"></div>
-                <span>Misas disponibles</span>
+                <span>confesiones disponibles</span>
             </div>
             <div class="leyenda-item">
                 <div class="leyenda-color" style="background-color: #fff; border: 1px solid #dee2e6;"></div>
-                <span>Sin misas disponibles</span>
+                <span>Sin confesiones disponibles</span>
             </div>
         </div>
     </div>
