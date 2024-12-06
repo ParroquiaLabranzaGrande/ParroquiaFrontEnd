@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
            <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Misas confirmadas </h5>
+                                <h5 class="modal-title" id="exampleModalLabel">confesiones confirmadas </h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function CargarConfesionesPendientes() {
-    fetch('https://backendparroquia-1.onrender.com/requestConfessions/earring', {
+    fetch('https://backendparroquia-1.onrender.com/confessiones/earring', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -120,12 +120,12 @@ function CargarConfesionesPendientes() {
                 <td>${partida.time}</td>
                 <td>${partida.status}</td>
                 <td>
-                    <button class="btn btn-primary btn-sm" onclick="enviarMisa('${partida._id}')">
+                    <button class="btn btn-primary btn-sm" onclick="enviarconfesion('${partida._id}')">
                         Confirmar
                     </button>
                 </td>
                 <td>
-                    <button class="btn btn-primary btn-sm" onclick="EliminarMisa('${partida._id}')">
+                    <button class="btn btn-primary btn-sm" onclick="Eliminarconfesion('${partida._id}')">
                         Eliminar
                     </button>
                 </td>
@@ -140,7 +140,7 @@ function CargarConfesionesPendientes() {
 }
 
 function cargarMisaEnviadas() {
-    fetch('https://backendparroquia-1.onrender.com/requestConfessions/confirmed', {
+    fetch('https://backendparroquia-1.onrender.com/confessiones/confirmed', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -181,7 +181,7 @@ function cargarMisaEnviadas() {
 
 function enviarMisa(partidaId) {
     console.log('Intentando enviar partida con ID:', partidaId);
-    fetch(`https://backendparroquia-1.onrender.com/requestConfessions/confirm/${partidaId}`, {
+    fetch(`https://backendparroquia-1.onrender.com/confessiones/confirm/${partidaId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -193,36 +193,36 @@ function enviarMisa(partidaId) {
             if (!response.ok) {
                 return response.json().then(err => {
                     console.error('Error en la respuesta:', err);
-                    throw new Error(err.message || `Error al enviar la Misa. Estado: ${response.status}`);
+                    throw new Error(err.message || `Error al enviar la confesion. Estado: ${response.status}`);
                 });
             }
             return response.json();
         })
         .then(data => {
-            console.log('Misa enviada exitosamente:', data);
+            console.log('confesion enviada exitosamente:', data);
             Swal.fire({
                 icon: 'success',
                 title: 'Éxito',
-                text: 'La Misa Es aceptada correctamente',
+                text: 'La confesion Es aceptada correctamente',
             }).then(() => {
                 CargarConfesionesPendientes();
                 cargarMisaEnviadas();
             });
         })
         .catch(error => {
-            console.error('Error detallado al enviar la Misa:', error);
+            console.error('Error detallado al enviar la confesion:', error);
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: error.message || 'Ocurrió un error al enviar la Misa',
+                text: error.message || 'Ocurrió un error al enviar la confesion',
             });
         });
 }
 
 
 function EliminarMisa(partidaId) {
-    console.log('Intentando eliminar Misa con ID:', partidaId);
-    fetch(`https://backendparroquia-1.onrender.com/requestConfessions/${partidaId}`, {
+    console.log('Intentando eliminar confesion con ID:', partidaId);
+    fetch(`https://backendparroquia-1.onrender.com/confessiones/${partidaId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -234,17 +234,17 @@ function EliminarMisa(partidaId) {
             if (!response.ok) {
                 return response.json().then(err => {
                     console.error('Error en la respuesta:', err);
-                    throw new Error(err.message || `Error al eliminar la Misa. Estado: ${response.status}`);
+                    throw new Error(err.message || `Error al eliminar la confesion. Estado: ${response.status}`);
                 });
             }
             return response.json();
         })
         .then(data => {
-            console.log('Misa eliminada exitosamente:', data);
+            console.log('confesion eliminada exitosamente:', data);
             Swal.fire({
                 icon: 'success',
                 title: 'Éxito',
-                text: data.message || 'La solicitud de misa fue eliminada correctamente',
+                text: data.message || 'La solicitud de confesiones fue eliminada correctamente',
             }).then(() => {
                 CargarConfesionesPendientes();
                 cargarMisaEnviadas();
@@ -255,7 +255,7 @@ function EliminarMisa(partidaId) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: error.message || 'Ocurrió un error al eliminar la Misa',
+                text: error.message || 'Ocurrió un error al eliminar la confesion',
             });
         });
 }

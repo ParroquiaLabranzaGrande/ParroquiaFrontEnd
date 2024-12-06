@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="container mt-3" style="overflow-y: auto; overflow-x;>
   <div class="row">
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Calendario de Misas</h1>
+        <h1 class="text-center mb-4">Calendario de confesiones</h1>
         <div id="calendario" class="mb-4"></div>
         <div class="leyenda">
             <div class="leyenda-item">
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Intención de la Misa</h5>
+                    <h5 class="modal-title">Intención de la confesion</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -251,7 +251,7 @@ function SolicitarMisa() {
                             }
                         });
                     } else {
-                        horariosModalBody.textContent = 'No hay misas disponibles para este día.';
+                        horariosModalBody.textContent = 'No hay confesiones disponibles para este día.';
                     }
                     
                     const modal = new bootstrap.Modal(document.getElementById('horariosModal'));
@@ -263,7 +263,7 @@ function SolicitarMisa() {
                 .catch(error => {
                     console.error('Error al obtener horarios:', error);
                     const horariosModalBody = document.getElementById('horariosModalBody');
-                    horariosModalBody.textContent = 'No hay misas disponibles para este día.';
+                    horariosModalBody.textContent = 'No hay confesiom disponibles para este día.';
                     const modal = new bootstrap.Modal(document.getElementById('horariosModal'));
                     modal.show();
                 });
@@ -291,11 +291,11 @@ function SolicitarMisa() {
         const intencion = document.getElementById('intencion').value;
 
         if (!intencion) {
-            alert('Por favor, ingresa la intención de la misa.');
+            alert('Por favor, ingresa la intención de la confesion.');
             return;
         }
 
-        fetch('https://backendparroquia-1.onrender.com/requestConfessions', {
+        fetch('https://backendparroquia-1.onrender.com/confessiones', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -311,7 +311,7 @@ function SolicitarMisa() {
         .then(data => {
             Swal.fire({
                 title: 'Éxito',
-                html: 'Solicitud de misa enviada correctamente<br>Para aprobar esta solicitud debe comunicarse al siguiente whatsApp y hacer el pago respectivo.',
+                html: 'Solicitud de confesion enviada correctamente<br>Para aprobar esta solicitud debe comunicarse al siguiente whatsApp y hacer el pago respectivo.',
                 icon: 'success',
                 confirmButtonText: 'Ok',
                 imageUrl: '/img/QR.png', // Reemplaza con la URL de tu imagen
@@ -327,7 +327,7 @@ function SolicitarMisa() {
             console.error('Error:', error);
             Swal.fire({
                 title: 'Error',
-                text: 'Error al enviar la solicitud de misa',
+                text: 'Error al enviar la solicitud de confesion',
                 icon: 'error',
                 confirmButtonText: 'Ok'
             });

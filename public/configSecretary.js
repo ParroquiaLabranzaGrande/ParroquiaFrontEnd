@@ -105,9 +105,6 @@ document.addEventListener('DOMContentLoaded', function () {
                                                 </div>
                                             </div>
                                             <hr>
-                                           
-                                        
-                                           
                                             <hr>
                                             <div class="row">
                                                  <div class="col-sm-12">
