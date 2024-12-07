@@ -311,13 +311,9 @@ function SolicitarMisa() {
         .then(data => {
             Swal.fire({
                 title: 'Éxito',
-                html: 'Solicitud de misa enviada correctamente<br>Para aprobar esta solicitud debe comunicarse al siguiente whatsApp y hacer el pago respectivo.',
+                html: 'Solicitud de misa enviada correctamente<br>Para aprobar esta solicitud debe comunicarse con la parroquia y hacer el pago respectivo.',
                 icon: 'success',
-                confirmButtonText: 'Ok',
-                imageUrl: '/img/QR.png', // Reemplaza con la URL de tu imagen
-                imageWidth: 100,  // Ajusta el tamaño según sea necesario
-                imageHeight: 100, // Ajusta el tamaño según sea necesario
-                imageAlt: 'Imagen de éxito'
+                confirmButtonText: 'Ok'
             });
             document.getElementById('misaForm').reset();
             bootstrap.Modal.getInstance(document.getElementById('intencionModal')).hide();

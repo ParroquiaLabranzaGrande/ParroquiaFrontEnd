@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Intención de la Misa</h5>
+                    <h5 class="modal-title">Confirmar Confesion</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <input type="text" class="form-control" id="hora" readonly>
                         </div>
                         <div class="mb-3">
-                            <label for="intencion" class="form-label">Intención</label>
+                            <label for="intencion" class="form-label">Observaciones</label>
                             <textarea class="form-control" id="intencion" rows="3" required></textarea>
                         </div>
                     </form>
@@ -295,7 +295,7 @@ function SolicitarConfesion() {
             return;
         }
 
-        fetch('https://backendparroquia-1.onrender.com/requestConfessions', {
+        fetch('https://backendparroquia-1.onrender.com/confessiones', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -311,13 +311,9 @@ function SolicitarConfesion() {
         .then(data => {
             Swal.fire({
                 title: 'Éxito',
-                html: 'Solicitud de misa enviada correctamente<br>Para aprobar esta solicitud debe comunicarse al siguiente whatsApp y hacer el pago respectivo.',
+                html: 'Solicitud de confesion enviada correctamente.',
                 icon: 'success',
                 confirmButtonText: 'Ok',
-                imageUrl: '/img/QR.png', // Reemplaza con la URL de tu imagen
-                imageWidth: 100,  // Ajusta el tamaño según sea necesario
-                imageHeight: 100, // Ajusta el tamaño según sea necesario
-                imageAlt: 'Imagen de éxito'
             });
             document.getElementById('misaForm').reset();
             bootstrap.Modal.getInstance(document.getElementById('intencionModal')).hide();
